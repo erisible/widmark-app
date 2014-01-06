@@ -6,7 +6,7 @@
 
 ###Requirements
 
-* [npm](https://npmjs.org/) (aka [angular:app](#app))
+* [npm](https://npmjs.org/)
 * [bower](http://bower.io/)
 
 ###Installation
@@ -25,6 +25,6 @@ Running `grund build` will generate the release in the `dist` directory.
 * Some UI improvements.
 * Internationalize/localize the app (add translations and localized time formats).
 
-##Licence
+##License
 
-[![Do What the Fuck You Want to Public License](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/)
+[![Do What the Fuck You Want to Public License](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/ "Do What the Fuck You Want to Public License")
