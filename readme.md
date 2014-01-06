@@ -2,6 +2,8 @@
 >A simple web app using the Widmark formula to try out AngularJS.
 >Source : [How many drinks can you have at lunchtime and still turn up to your 5pm meeting sober?](https://theconversation.com/forget-perfect-pizzas-here-are-four-things-simple-maths-really-can-help-you-with-19794)
 
+>[Demo](https://erisible.github.io/widmark-app)
+
 ##Usage
 
 ###Requirements
