@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot?65842252');
+  src: url('../fonts/fontello.eot?65842252#iefix') format('embedded-opentype'), 
+       url('../fonts/fontello.woff?65842252') format('woff'), 
+       url('../fonts/fontello.ttf?65842252') format('truetype'), 
+       url('../fonts/fontello.svg?65842252#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?49965045#fontello') format('svg');
+  }
+}
+*/
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.icon-down-open:before {
+  content: '\e802';
+}
+/* '' */
+
+.icon-up-open:before {
+  content: '\e803';
+}
+/* '' */
+
+.icon-down-open-mini:before {
+  content: '\e804';
+}
+/* '' */
+
+.icon-up-open-mini:before {
+  content: '\e805';
+}
+/* '' */
+
+.icon-down-open-big:before {
+  content: '\e806';
+}
+/* '' */
+
+.icon-up-open-big:before {
+  content: '\e807';
+}
+/* '' */
+
+.icon-male:before {
+  content: '\e800';
+}
+/* '' */
+
+.icon-female:before {
+  content: '\e801';
+}
+/* '' */
+
+/* ie7 */
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  /* fix buttons height */
+  line-height: 1em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+}
+.icon-down-open {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe802;&nbsp;')";
+}
+.icon-up-open {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe803;&nbsp;')";
+}
+.icon-down-open-mini {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe804;&nbsp;')";
+}
+.icon-up-open-mini {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe805;&nbsp;')";
+}
+.icon-down-open-big {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe806;&nbsp;')";
+}
+.icon-up-open-big {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe807;&nbsp;')";
+}
+.icon-male {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;')";
+}
+.icon-female {
+  *zoom: ~"expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe801;&nbsp;')";
+}

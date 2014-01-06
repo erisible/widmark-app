@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Test - wmtime.js</title>
+  <link rel="stylesheet" type="text/css" href="jasmine.css">
+  <script type="text/javascript" src="jasmine.js"></script>
+  <script type="text/javascript" src="jasmine-html.js"></script>
+  <script type="text/javascript" src="jasmineCompleteReporter.js"></script>
+  <script src="jquery.js"></script>
+  
+  <script src='jasmine.blanket.js'></script>
+</head>
+<body>
+<script type="text/javascript">
+    /*jslint indent:2*/
+/*global describe, beforeEach, module, inject, it, angular, expect*/
+
+(function () {
+
+  'use strict';
+
+  describe('Directive: wmTime', function () {
+
+    // load the directive's module
+    beforeEach(module('widmarkApp'));
+
+    var element,
+      scope;
+
+    beforeEach(inject(function ($rootScope) {
+      scope = $rootScope.$new();
+    }));
+
+    it('should make hidden element visible', inject(function ($compile) {
+      element = angular.element('<wm-time></wm-time>');
+      element = $compile(element)(scope);
+      expect(element.text()).toBe('this is the wmTime directive');
+    }));
+  });
+}());
+    
+    
+    
+    
+    var myParent = window.parent;
+    var jasmineEnv = jasmine.getEnv();
+    jasmineEnv.updateInterval = 1000;
+
+    var htmlReporter = new jasmine.HtmlReporter();
+    var reportRunnerResults = htmlReporter.reportRunnerResults;
+
+    htmlReporter.reportRunnerResults = function(runner) {
+        reportRunnerResults(runner);
+    
+        
+       
+        
+        
+        var specs = runner.specs();
+        var specResults;
+        var assertionCount = {total: 0, passed: 0, failed: 0};
+        var result = {};
+        for (var i = 0; i < specs.length; ++i) {
+            if (this.specFilter(specs[i])) {
+                specResults = specs[i].results();
+                assertionCount.total += specResults.totalCount;
+                assertionCount.passed += specResults.passedCount;
+                assertionCount.failed += specResults.failedCount;
+            }
+        }
+    
+        if (console && console.log) {
+            console.log('Total: ' + assertionCount.total);
+            console.log('Passed: ' + assertionCount.passed);
+            console.log('Failed: ' + assertionCount.failed);
+        }
+        
+        
+        if (assertionCount.failed) {
+            result.status = "failed";
+            result.message = assertionCount.failed + " failures";
+        } else {
+            result.status = "passed";
+            result.message = "Success! " + assertionCount.passed + " passed";
+        }
+        
+        if(myParent.reportComplete) {
+            console.log("myParent.reportComplete", result);
+            myParent.reportComplete(result);
+        }
+        
+        var totals = document.querySelectorAll(".grand-total .rs");
+        if(myParent.coverageComplete) {
+            myParent.coverageComplete({
+                message: totals && totals[0] ? totals[0].innerHTML + " coverage" : "No coverage"
+            });
+        }
+        
+    };
+   
+    jasmineEnv.addReporter(htmlReporter);
+    
+    jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+    };
+
+    var currentWindowOnload = window.onload;
+                                                      
+    window.onload = function() {
+        if (currentWindowOnload) {
+            currentWindowOnload();
+        }
+        execJasmine();
+    };
+
+    function execJasmine() {
+        var oldCallback = jasmineEnv.currentRunner().finishCallback;
+        jasmineEnv.currentRunner().finishCallback = function () {
+            oldCallback.apply(this, arguments);
+            console.log(this, arguments);
+            
+            htmlReporter.reportRunnerResults();
+           
+        };
+        jasmineEnv.execute();
+    }
+</script>
+</body>
+</html>
