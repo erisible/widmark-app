@@ -95,6 +95,7 @@
                   scope.$apply(e.touches[0].clientY < touchCoords.prevY ? scope.incrementValue() : scope.decrementValue());
                 }
                 touchCoords.prevY = e.touches[0].clientY;
+                e.preventDefault();
               }
             }
           });
