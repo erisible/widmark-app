@@ -29,7 +29,7 @@ a {
 .container {
   margin: 0 auto;
   width: 100%;
-  max-width: 763px;
+  max-width: 768px;
   padding: 0 15px;
   box-sizing: border-box;
 }
@@ -53,6 +53,7 @@ a {
 
 .text-large {
   font-size: 1.5em;
+  margin-bottom: 0.34em;
 }
 
 .text-xlarge {
@@ -65,6 +66,14 @@ a {
 
 .block {
   display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.display-small {
+  display: none;
 }
 
 .vertical-align-middle {
@@ -95,7 +104,8 @@ input[type="time"] {
   color: @input-color;
   border-radius: 4px;
   text-align: center;
-  height: 50px;
+  width: 1.5em;
+  height: 1em;
   padding: 15px;
   margin: 0px 15px;
   transition: background-color .4s ease-out,
@@ -113,4 +123,14 @@ div.ng-invalid a {
 
 .medium-contrast {
   color: @medium-contrasted-color;
+}
+
+@media screen and (max-width: 480px) {
+  .hidden-small {
+    display: none;
+  }
+  
+  .display-small {
+    display: inherit;
+  }
 }

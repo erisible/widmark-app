@@ -24,7 +24,6 @@ Running `grund build` will generate the release in the `dist` directory.
 
 ##Todo
 
-* Some UI improvements.
 * Internationalize/localize the app (add translations and localized time formats).
 
 ##License

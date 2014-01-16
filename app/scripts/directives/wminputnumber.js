@@ -17,7 +17,7 @@
           model: '=ngModel'
         },
         link: function (scope, element, attrs, ngModel) {
-          
+
           function getNumber() {
             return parseInt(scope.model, 10);
           }
@@ -27,7 +27,8 @@
           }
                 
           function formatValue(value) {
-            if (angular.isDefined(attrs.wmLength)) {
+            if (angular.isDefined(attrs.wmLength) && attrs.wmLength > value.toString().length) {
+                
               var diff = attrs.wmLength - value.toString().length,
                 pre = '',
                 i;
@@ -35,13 +36,17 @@
               for (i = 0; i < diff; i += 1) {
                 pre += '0';
               }
-              
+                
               return pre + value;
+            } else if (angular.isDefined(attrs.wmLength) && attrs.wmLength < value.toString().length) {
+              return value.toString().slice(0, value.toString().length - 1);
             } else {
               return value;
             }
           }
           
+          scope.model = formatValue(scope.model);
+                    
           scope.incrementValue = function () {
             if ((getNumber() < getAttr('wmMax')) || !angular.isDefined(attrs.wmMax)) {
               scope.model = formatValue(getNumber() + 1);
@@ -66,6 +71,13 @@
             //pick correct delta variable depending on event
               var delta = e.wheelDelta || -e.deltaY;
               return (e.detail || delta > 0);
+            },
+            threshold = 6,
+            touchCoords = {
+              StartX: 0,
+              StartY: 0,
+              prevX: 0,
+              prevY: 0
             };
           
           input.bind('mousewheel wheel', function (e) {
@@ -73,8 +85,34 @@
             e.preventDefault();
           });
           
+          input.bind('touchmove', function (e) {
+
+            if (e.touches.length) {
+              
+              if (Math.abs(e.touches[0].clientY - touchCoords.StartY) >= threshold) {
+                
+                if (touchCoords.prevY !== 0) {
+                  scope.$apply(e.touches[0].clientY < touchCoords.prevY ? scope.incrementValue() : scope.decrementValue());
+                }
+                touchCoords.prevY = e.touches[0].clientY;
+              }
+            }
+          });
+          
+          input.bind('touchstart', function (e) {
+            if (e.touches.length) {
+              touchCoords.StartX = e.touches[0].clientX;
+              touchCoords.StartY = e.touches[0].clientY;
+            }
+          });
+          
+          input.bind('touchend', function () {
+            touchCoords.prevX = 0;
+            touchCoords.prevY = 0;
+          });
+          
           scope.updateValue = function () {
-            scope.model = getNumber();
+            scope.model = formatValue(getNumber());
           };
           
           scope.isValid = function () {
@@ -92,8 +130,14 @@
           };
 
           ngModel.$render = function () {
-            scope.model = formatValue(ngModel.$viewValue);
+            if (isNaN(ngModel.$viewValue)) {
+              ngModel.$setViewValue(scope.model);
+            } else {
+              ngModel.$setViewValue(ngModel.$viewValue);
+              scope.model = formatValue(ngModel.$viewValue);
+            }
             ngModel.$setValidity('model', scope.isValid());
+
           };
         }
       };
