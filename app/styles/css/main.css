@@ -277,13 +277,15 @@ a {
 }
 .container {
   margin: 0 auto;
-  width: 100%;
-  max-width: 768px;
+  max-width: 1200px;
   padding: 0 15px;
   box-sizing: border-box;
 }
 .center {
   text-align: center;
+}
+.right {
+  text-align: right;
 }
 .table-center {
   display: table;
@@ -353,6 +355,15 @@ div.ng-invalid a {
 }
 .medium-contrast {
   color: #dfb3c0;
+}
+button {
+  background-color: #c06c84;
+  color: #f6e9ed;
+  border: 2px solid #f6e9ed;
+  border-radius: 4px;
+  padding: 0.5em;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 @media screen and (max-width: 480px) {
   .hidden-small {

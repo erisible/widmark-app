@@ -22,10 +22,6 @@ Running `grund build` will generate the release in the `dist` directory.
 
 **Note: due to the simplicity of the app, I didn't configure the tests so running `grunt` will cause an error.**
 
-##Todo
-
-* Internationalize/localize the app (add translations and localized time formats).
-
 ##License
 
 [![Do What the Fuck You Want to Public License](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/ "Do What the Fuck You Want to Public License")

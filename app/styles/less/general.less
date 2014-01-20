@@ -28,14 +28,17 @@ a {
 
 .container {
   margin: 0 auto;
-  width: 100%;
-  max-width: 768px;
+  max-width: 1200px;
   padding: 0 15px;
   box-sizing: border-box;
 }
 
 .center {
   text-align: center;
+}
+
+.right {
+  text-align: right;
 }
 
 .table-center {
@@ -123,6 +126,16 @@ div.ng-invalid a {
 
 .medium-contrast {
   color: @medium-contrasted-color;
+}
+
+button {
+  background-color: @background;
+  color: @color;
+  border: 2px solid @color;
+  border-radius: 4px;
+  padding: 0.5em;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 
 @media screen and (max-width: 480px) {

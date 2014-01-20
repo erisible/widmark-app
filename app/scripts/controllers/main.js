@@ -8,8 +8,8 @@
   'use strict';
 
   angular.module('widmarkApp')
-    .controller('MainCtrl', ['$scope', 'numberFilter', function ($scope, numberFilter) {
-      var date = new Date(new Date().setHours(new Date().getHours() + 5)),
+    .controller('MainCtrl', ['$translate', '$scope', 'numberFilter', function ($translate, $scope, numberFilter) {
+      var date = new Date(new Date().setHours(new Date().getHours() + 12)),
         delay = function () {
           var now = new Date(),
             value = ($scope.time.hours - now.getHours()) + (($scope.time.minutes - now.getMinutes()) / 60);
@@ -39,7 +39,7 @@
       };
 
       $scope.setUserWeight = function (value) {
-        $scope.user.weight = value;
+        $scope.user.weight = $translate(value);
       };
 
       $scope.calculateUnits = function () {
@@ -61,5 +61,9 @@
       }
       
       $scope.$watch($scope.calculateUnits, updateUnits);
+      
+      $scope.changeLanguage = function (langKey) {
+        $translate.uses(langKey);
+      };
     }]);
 }());
