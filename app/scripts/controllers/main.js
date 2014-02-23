@@ -9,7 +9,7 @@
 
   angular.module('widmarkApp')
     .controller('MainCtrl', ['$translate', '$scope', 'numberFilter', function ($translate, $scope, numberFilter) {
-      var date = new Date(new Date().setHours(new Date().getHours() + 12)),
+      var date = new Date(new Date().setHours(new Date().getHours() + 4)),
         delay = function () {
           var now = new Date(),
             value = ($scope.time.hours - now.getHours()) + (($scope.time.minutes - now.getMinutes()) / 60);
